@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html"; charset="utf-8"/>
+        <script src='https://www.google.com/recaptcha/api.js'></script>
+        <script type="text/javascript">
+        function FormSubmit(){
+            if (grecaptcha.getResponse() == ""){
+                alert("로봇이 아닙니다 를 체크해 주세요!");
+                return false;
+            } else {
+                return true;
+            }
+        }
+        </script>
+        <title>가임하기</title>
+    </head>
+    <body>
+            <form name="testForm" method="post" action="./process.php" onsubmit="return FormSubmit();">
+            이름 : <input type="text" name="name" /><br />
+            전화번호 : <input type="text" name="tel" /><br />
+            <input type="submit" name="submit" value="가입"><br />
+            <br/> 
+            <div class="g-recaptcha" data-sitekey="6LevnaYUAAAAALjveP7wHYVPyzhOSIVLG1byhCI4"></div>
+    </body>
+</html>
