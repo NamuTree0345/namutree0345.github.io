@@ -1,0 +1,21 @@
+<html>
+<head>
+<title>사람인증</title>
+
+<script>
+function goPage(){
+  if (document.getElementById('vinput').value == "379458"){
+    location.href = "www.google.com"
+  } else {
+    alert("인증 코드가 틀렸습니다.");
+  }
+}
+</script>
+</head>
+
+<body>
+아래의 그림의 숫자 아래의 상자에 넣어주세요. </br>
+숫자: <input type="text" id="vinput"><br/>
+<input type="button" onclick="javascript:goPage()" value="인증">
+</body>
+</html>
