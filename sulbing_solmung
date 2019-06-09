@@ -1,0 +1,72 @@
+<html>
+<head>
+<title>디스코드에서 코드 넣기</title>
+</head>
+
+<body>
+1. 파이썬 코드 넣기 <br/>
+```python<br/>
+소스코드<br/>
+```<br/>
+<br/>
+뭐 예를 들자면 아래와 비슷한거?<br/>
+```python<br/>
+import discord<br/>
+<br/>
+client = discord.Client()<br/>
+<br/>
+<br/>
+@client.event<br/>
+async def on_ready():<br/>
+    print(client.user.id)<br/>
+    print("ready")<br/>
+    game = discord.Game("설빙님 도와주세요ㅠㅠ ㄱㄱ")<br/>
+    await client.change_presence(status=discord.Status.do_not_disturb, activity=game)<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+@client.event<br/>
+async def on_message(message):<br/>
+    if message.content.startswith("설빙님 안녕하세요"):<br/>
+        await message.channel.send("네! 안녕하세요!")<br/>
+    if message.content.startswith("설빙님 도와주세요ㅠㅠ"):<br/>
+        embed = discord.Embed(<br/>
+            title="설빙봇 도움말",<br/>
+            description="설빙봇의 도움말 입니다.",<br/>
+            colour=discord.Color.gold()<br/>
+        )<br/>
+        embed.add_field(name="명령어", value="설빙님 안녕하세요\n설빙님 뭐해요\n설빙님 놀아요\n설빙님 당신은누구입니까\n설빙님 심심해여\n설빙SnowIce")<br/>
+        embed.add_field(name="제작자", value="레드위키", inline=False)<br/>
+        embed.add_field(name="문의", value="레드위키#0345", inline=False)<br/>
+        embed.set_footer(text="설빙봇 v2 베타", icon_url="http://redwikitv.github.com/photo.png")<br/>
+<br/>
+        await message.channel.send(embed=embed)<br/>
+    if message.content.startswith("설빙님 뭐해여"):<br/>
+        await message.channel.send("영상찍어요. 근데 왜요?")<br/>
+    if message.content.startswith("설빙님 놀아요"):<br/>
+        await message.channel.send("죄송합니다, 나 지금 영상찍어서 안됩니다. 1000000년 후에 같이 하도록 하죠.")<br/>
+    if message.content.startswith("설빙님 당신은누구입니까"):<br/>
+        await message.channel.send("~~난 유튜버면서 사람이예요~~ 가 아니라 봇이이예연")<br/>
+    if message.content.startswith("설빙님 심심해여"):<br/>
+        await message.channel.send("가서 게임하세요!!!!!!!!!!!!")<br/>
+    if message.content.startswith("설빙SnowIce"):<br/>
+        embed = discord.Embed(<br/>
+            title="설빙님의 정보",<br/>
+            description="설빙님의 정보!",<br/>
+            color=discord.Color.blue()<br/>
+        )
+        embed.add_field(name="설빙 유튜브", value="https://www.youtube.com/channel/UCPosCNaU09XgUvt3h6xbqPw")<br/>
+        embed.add_field(name="설빙 사이트", value="https://sulbing29.wixsite.com/sulbing29", inline=True)<br/>
+        embed.add_field(name="설빙 블로그", value="https://m.blog.naver.com/kimmingu080209", inline=False)<br/>
+        embed.set_footer(text="설빙봇 v2 베타", icon_url="http://redwikitv.github.io/photo.png")<br/>
+        await message.channel.send(embed=embed)<br/>
+
+
+
+client.run("비밀")<br/>
+```<br/>
+이런 식으로 디스코드에 쓰면 코드 색상이 적용되어서 코드가 나옵니다.
+</body>
+
+</html>
